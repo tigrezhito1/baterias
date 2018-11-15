@@ -200,27 +200,57 @@ class BateriaAdmin(admin.ModelAdmin):
 #('a_charfield',, DropdownFilter)
     
 
+# @admin.register(Pago)
+# class PagooAdmin(admin.ModelAdmin):
+#     list_display = ('id','nombre')
+#     search_fields=('nombre',)
+
+
 @admin.register(Pago)
-class PagooAdmin(admin.ModelAdmin):
+class PagoAdmin(ImportExportModelAdmin):
     list_display = ('id','nombre')
-    search_fields=('nombre',)
+    search_fields=('nombre',) 
+    pass     
+
+
+# @admin.register(Atiende)
+# class AtiendeAdmin(admin.ModelAdmin):
+#     list_display = ('id','nombre','celular')
+#     search_fields=('nombre',)
+
 
 @admin.register(Atiende)
-class AtiendeAdmin(admin.ModelAdmin):
+class AtiendeAdmin(ImportExportModelAdmin):
     list_display = ('id','nombre','celular')
-    search_fields=('nombre',)
+    search_fields=('nombre',) 
+    pass     
 
  
+# @admin.register(Almacen)
+# class AlmacenAdmin(admin.ModelAdmin):
+#     list_display = ('id','nombre')
+#     search_fields=('nombre',) 
+
+
 @admin.register(Almacen)
-class AlmacenAdmin(admin.ModelAdmin):
+class AlmacenAdmin(ImportExportModelAdmin):
     list_display = ('id','nombre')
-    search_fields=('nombre',)      
+    search_fields=('nombre',) 
+    pass     
+
+
+# @admin.register(Status)
+# class StatusAdmin(admin.ModelAdmin):
+#     list_display = ('id','nombre')
+#     search_fields=('nombre',)
 
 
 @admin.register(Status)
-class StatusAdmin(admin.ModelAdmin):
+class StatusAdmin(ImportExportModelAdmin):
     list_display = ('id','nombre')
-    search_fields=('nombre',)
+    search_fields=('nombre',) 
+    pass     
+
 
 
 
