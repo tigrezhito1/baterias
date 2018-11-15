@@ -22,6 +22,25 @@ print    " \   Y   /\__  \  /     \ /  _ \/  ___/  |     ___// __ \_  __ \  |  \
 print    "  \     /  / __ \|  Y Y  (  <_> )___ \   |    |   \  ___/|  | \/  |  / "
 print    "   \___/  (____  /__|_|  /\____/____  >  |____|    \___  >__|  |____/  "
 print    "               \/      \/           \/                 \/              "
+print"             /^\/^\  "
+print"           _|__|  O|  "
+print"  \/     /~     \_/ \  "
+print"   \____|__________/  \  "
+print"          \_______      \  "
+print"                  `\     \                 \  "
+print"                    |     |                  \  "
+print"                   /      /                    \  "
+print"                  /     /                       \\  "
+print"                /      /                         \ \  "
+print"               /     /                            \  \  "
+print"             /     /             _----_            \   \  "
+print"            /     /           _-~      ~-_         |   |  "
+print"           (      (        _-~    _--_    ~-_     _/   |  "
+print"            \      ~-____-~    _-~    ~-_    ~-_-~    /  "
+print"              ~-_           _-~          ~-_       _-~   -Tigre-  "
+print"                 ~--______-~                ~-___-~  "
+print" 			  "
+
 
 from django.shortcuts import *
 from django.template import RequestContext
