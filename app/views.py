@@ -661,7 +661,7 @@ def dashboard(request):
 		pre=''
 		descuento=''
 		#anio=''
-		anio=''
+		anio='NS'
 		status_uni=''
 		motorisado=''
 		
