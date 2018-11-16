@@ -244,7 +244,7 @@ def reporte(request):
     datos =Produccion.objects.filter(usuario_id=a).values_list('id','fecha','cliente','apellido_p','apellido_m','dni','telefono_1','telefono_2','marca_vehiculo','modelo','version','anio__nombre','color__nombre','cilindrada', 'placa','kilometraje','cantidad','marca_producto','modelo_bateria',
 	'distrito__nombre','referencia','nombre_boleta','m_apellido_p','m_apellido_m','dni_c',
 	'ruc','razon_social','direccion_rs','pago__nombre','correo','atiende__nombre','almacen__nombre','gmail','status__nombre','observaciones','usuario__username')
-    for d in datos:
+    for d in datos: 
 
 
 
