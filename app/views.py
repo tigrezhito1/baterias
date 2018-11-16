@@ -115,12 +115,28 @@ from app.resources import ProduccionResource
 
 from tablib import Dataset
 
+
+def importar(request):
+
+	
+
+	return render(request, 'import.html',{})
+
+
+
 def reportes(request):
 
 	Produccion_resource = ProduccionResource()
-	dataset = Produccion_resource.export()
-	response = HttpResponse(dataset.csv, content_type='text/csv')
+	dataset = Produccion.objects.values_list('color__nombre','usuario__username')
+
+	response = HttpResponse(dataset.csv, content_type='text/xls')
 	response['Content-Disposition'] = 'attachment; filename="Produccion.xls"'
+	list_filter = ('color__nombre',)
+	# writer = csv.writer(response)
+
+	# datos =Produccion.objects.values_list('color__nombre','usuario__username')
+	# for d in datos:
+ #    	   writer.writerow(d)
 	return response
 
 
@@ -218,11 +234,11 @@ def reporte(request):
     response['Content-Disposition'] = 'attachment; filename="reporte.xls"'
 
     writer = csv.writer(response)
-    writer.writerow(['Id','Fecha','cliente','apellido_p','apellido_m','DNI','telefono_1','telefono_2','Marca del Vehiculo','Modelo','Version','Anio','Color','Motor', 'placa','Kilometraje','cantidad','Servicio','marca_producto','modelo_bateria','User__usrname', ])
+    writer.writerow(['Id','Fecha','cliente','apellido_p','apellido_m','DNI','telefono_1','telefono_2','Marca del Vehiculo','Modelo','Version','Anio','Color','Motor', 'placa','Servicio','Kilometraje','cantidad','marca_producto','modelo_bateria','Usuario' ])
     a= User=request.user
 	
 
-    datos =Produccion.objects.filter(usuario_id=a).values_list('id','fecha','cliente','apellido_p','apellido_m','dni','telefono_1','telefono_2','marca_vehiculo','modelo','version','anio','color__nombre','cilindrada', 'placa','status','kilometraje','cantidad','marca_producto','modelo_bateria','usuario__username')
+    datos =Produccion.objects.filter(usuario_id=a).values_list('id','fecha','cliente','apellido_p','apellido_m','dni','telefono_1','telefono_2','marca_vehiculo','modelo','version','anio__nombre','color__nombre','cilindrada', 'placa','status__nombre','kilometraje','cantidad','marca_producto','modelo_bateria','usuario__username')
     for d in datos:
 
 
@@ -661,7 +677,7 @@ def dashboard(request):
 		pre=''
 		descuento=''
 		#anio=''
-		anio='NS'
+		anio=''
 		status_uni=''
 		motorisado=''
 		

@@ -115,7 +115,7 @@ class Vehiculo(models.Model):
 
 class Pago(models.Model):
     nombre = models.CharField(max_length=1000,blank=True, null=True)
-
+    
     def __unicode__(self):
 
         return self.nombre
