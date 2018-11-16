@@ -16,8 +16,9 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^usuarios/$', usuarios, name='usuarios'),
     url(r'^vehiculos/$', vehiculos),
-    url(r'^reporte/$', reportes),
-    
+    url(r'^reporte/$', reporte),
+    url(r'^importar/$', importar    ),
+
     # url(r'^pdf/$', hello_pdf),
     
 
