@@ -135,6 +135,7 @@ class Almacen(models.Model):
     def __unicode__(self):
 
         return self.nombre
+        
 class Status(models.Model):
     nombre = models.CharField(max_length=1000,blank=True, null=True)
 
