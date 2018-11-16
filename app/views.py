@@ -234,11 +234,16 @@ def reporte(request):
     response['Content-Disposition'] = 'attachment; filename="reporte.xls"'
 
     writer = csv.writer(response)
-    writer.writerow(['Id','Fecha','cliente','apellido_p','apellido_m','DNI','telefono_1','telefono_2','Marca del Vehiculo','Modelo','Version','Anio','Color','Motor', 'placa','Servicio','Kilometraje','cantidad','marca_producto','modelo_bateria','Usuario' ])
+    writer.writerow(['Id','Fecha','cliente','apellido_p','apellido_m','DNI','telefono_1','telefono_2','Marca del Vehiculo','Modelo','Version','Anio','Color','Motor', 'placa','Kilometraje','cantidad','marca_producto','modelo_bateria',
+	'distrito','referencia','mismo_cliente','nombre_boleta','m_apellido_p','m_apellido_m','dni_c',
+    'ruc','razon_social','direccion_rs','pago','correo',' atiende','almacen','gmail','status'
+    ,'observaciones','usuario' ])
     a= User=request.user
 	
 
-    datos =Produccion.objects.filter(usuario_id=a).values_list('id','fecha','cliente','apellido_p','apellido_m','dni','telefono_1','telefono_2','marca_vehiculo','modelo','version','anio__nombre','color__nombre','cilindrada', 'placa','status__nombre','kilometraje','cantidad','marca_producto','modelo_bateria','usuario__username')
+    datos =Produccion.objects.filter(usuario_id=a).values_list('id','fecha','cliente','apellido_p','apellido_m','dni','telefono_1','telefono_2','marca_vehiculo','modelo','version','anio__nombre','color__nombre','cilindrada', 'placa','kilometraje','cantidad','marca_producto','modelo_bateria',
+	'distrito__nombre','referencia','mismo_cliente','nombre_boleta','m_apellido_p','m_apellido_m','dni_c',
+	'ruc','razon_social','direccion_rs','pago__nombre','correo','atiende__nombre','almacen__nombre','gmail','status__nombre','observaciones','usuario__username')
     for d in datos:
 
 
