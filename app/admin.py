@@ -54,11 +54,16 @@ from django.contrib import admin
 
 # admin.site.register(Article, ArticleAdmin)
 
+
+
 def Reporte(modeladmin, request, queryset):
-    response = HttpResponse(content_type='text/csv')
-    response['Content-Disposition'] = 'attachment; filename="books.csv"'
+    response = HttpResponse(content_type='text/xls')
+    response['Content-Disposition'] = 'attachment; filename="books.xls"'
     writer = csv.writer(response)
-    writer.writerow(['Fecha','Servicio','Vehiculo', 'Modelo','Anio','Color','Motor', 'placa','cantidad','marca_producto','modelo_bateria','ID','User__usrname', 'telefono_1','telefono_2','cliente','apellido_p','apellido_m'])
+    writer.writerow(['Id','Fecha','cliente','apellido_p','apellido_m','DNI','telefono_1','telefono_2','Marca del Vehiculo','Modelo','Version','Anio','Color','Motor', 'placa','Kilometraje','cantidad','marca_producto','modelo_bateria',
+    'distrito','referencia','nombre_boleta','m_apellido_p','m_apellido_m','dni_c',
+    'ruc','razon_social','direccion_rs','pago','correo',' atiende','almacen','gmail','status'
+    ,'observaciones','usuario'])
     books = queryset.values_list('fecha','status','marca_vehiculo','modelo','anio','color__nombre','cilindrada', 'placa','cantidad','marca_producto','modelo_bateria','id','usuario__username','telefono_1','telefono_2','cliente','apellido_p','apellido_m')
     for book in books:
         writer.writerow(book)
@@ -69,11 +74,17 @@ Reporte.short_description = 'Reporte en  csv'
 
 
 def export_books(modeladmin, request, queryset):
-    response = HttpResponse(content_type='text/csv')
-    response['Content-Disposition'] = 'attachment; filename="books.csv"'
+    response = HttpResponse(content_type='text/xls')
+    response['Content-Disposition'] = 'attachment; filename="books.xls"'
     writer = csv.writer(response)
-    writer.writerow(['Fecha','Servicio','Vehiculo', 'Modelo','Anio','Color','Motor', 'placa','cantidad','marca_producto','modelo_bateria','ID','User__usrname', 'telefono_1','telefono_2','cliente','apellido_p','apellido_m'])
-    books = queryset.values_list('fecha','status','marca_vehiculo','modelo','anio','color__nombre','cilindrada', 'placa','cantidad','marca_producto','modelo_bateria','id','usuario__username','telefono_1','telefono_2','cliente','apellido_p','apellido_m')
+    writer.writerow(['Id','Fecha','cliente','apellido_p','apellido_m','DNI','telefono_1','telefono_2','Marca del Vehiculo','Modelo','Version','Anio','Color','Motor', 'placa','Kilometraje','cantidad','marca_producto','modelo_bateria',
+    'distrito','referencia','nombre_boleta','m_apellido_p','m_apellido_m','dni_c',
+    'ruc','razon_social','direccion_rs','pago','correo',' atiende','almacen','gmail','status'
+    ,'observaciones','usuario'])
+    books = queryset.values_list('id','fecha','cliente','apellido_p','apellido_m','dni','telefono_1','telefono_2','marca_vehiculo','modelo','version','anio__nombre','color__nombre','cilindrada', 'placa','kilometraje','cantidad','marca_producto','modelo_bateria',
+    'distrito__nombre','referencia','nombre_boleta','m_apellido_p','m_apellido_m','dni_c',
+    'ruc','razon_social','direccion_rs','pago__nombre','correo','atiende__nombre','almacen__nombre','gmail','status__nombre','observaciones','usuario__username'
+        )
     for book in books:
 
         print 'csv....',book
