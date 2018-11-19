@@ -236,8 +236,8 @@ def reporte(request):
     writer = csv.writer(response)
     writer.writerow(['Id','Fecha','cliente','apellido_p','apellido_m','DNI','telefono_1','telefono_2','Marca del Vehiculo','Modelo','Version','Anio','Color','Motor', 'placa','Kilometraje','cantidad','marca_producto','modelo_bateria',
 	'distrito','referencia','nombre_boleta','m_apellido_p','m_apellido_m','dni_c',
-    'ruc','razon_social','direccion_rs','pago','correo',' atiende','almacen','gmail','status'
-    ,'observaciones','usuario' ])
+    'ruc','razon_social','direccion_rs','pago','correo',' atiende','almacen','gmail','status',
+    'observaciones','usuario' ])
     a= User=request.user
 	
 
