@@ -102,10 +102,6 @@ admin.site.register(Article, ArticleAdmin)
 
 
 
-
-
-
-
 class MyAdminSite(AdminSite):
     site_header = 'POS Administrador'
 
