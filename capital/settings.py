@@ -12,12 +12,20 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 import datetime
-
+import raven
 
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+RAVEN_CONFIG = {
+    'dsn': 'https://8ce4ee7463a7401d96f3fad48c63b355@sentry.io/1259515',
+    # If you are using git, you can also automatically configure the
+    # release based on the git info.
+    'release': raven.fetch_git_sha(BASE_DIR),
+}
+
 
 
 # Quick-start development settings - unsuitable for production
