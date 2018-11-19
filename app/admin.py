@@ -90,7 +90,7 @@ def export_books(modeladmin, request, queryset):
         print 'csv....',book
         writer.writerow(book)
     return response
-export_books.short_description = 'Export to csv'
+export_books.short_description = 'Export to excel'
 
 class ArticleAdmin(admin.ModelAdmin):
     list_display = ['title',]
