@@ -26,7 +26,7 @@ from django_admin_listfilter_dropdown.filters import DropdownFilter, RelatedDrop
 
 from import_export.admin import ImportExportModelAdmin
 from django.contrib import admin
-
+import time
 
 # @admin.register(Person)
 # class PersonAdmin(ImportExportModelAdmin):
@@ -151,9 +151,12 @@ class ProduccionAdmin(admin.ModelAdmin):
         for q in queryset:
 
             print q.cliente
+            ## representacion del tiempo
+            print "Fecha FORMAO "  + time.strftime("%x")
+            print "LA HORAAA.....",(time.strftime("%d/%m/%y"))
 
-            return redirect('https://wa.me/'+str(q.atiende.celular)+'?text=FECHA++++++++:++++++++'+str(q.fecha)+'%0D%0A'+
-            #'%20HORA++++++++:++++++++'+str(q.hora_instalacion)+'%0D%0A'+
+            return redirect('https://wa.me/'+str(q.atiende.celular)+'?text=FECHA INSTALACION++++++++:++++++++'+str(q.fecha_atencion.strftime("%d/%m/%y"))+'%0D%0A'+
+            '%20HORA++++++++:++++++++'+str(q.hora_instalacion.strftime("%I :%M %p"))+'%0D%0A'+
             '%20SERVICIO++++++++:++++++++'+str(q.status)+'%0D%0A'+
             '%20VEHICULO++++++++:++++++++'+str(q.marca_vehiculo)+'%0D%0A'+
             '%20MODELO++++++++:++++++++'+str(q.modelo)+'%0D%0A'+
