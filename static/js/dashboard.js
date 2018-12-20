@@ -422,10 +422,15 @@ if(ruc === ''){
   documento='Factura'
  //Las validaciones que necesitas hacer
 }
- 
+  d = new Date(fecha_in);
+
+var day = d.getDate()+1;
+var month = d.getMonth()+1;
+var year = d.getFullYear();
+  
   
     var url='https://wa.me/'
-    +numero+'?text=FECHA++++++++:++++++++'+fecha_in+'%0D%0A'+
+    +numero+'?text=FECHA++++++++:++++++++'+day+"/"+month+"/"+year+'%0D%0A'+
     '%20HORA++++++++:++++++++'+inputime+'%0D%0A'+
     '%20SERVICIO++++++++:++++++++'+servicio+'%0D%0A'+
     '%20VEHICULO++++++++:++++++++'+marca+'%0D%0A'+

@@ -182,6 +182,7 @@ JWT_EXPIRATION_DELTA = datetime.timedelta(seconds=3000000000)
 
 LOG_PATH = os.path.join(BASE_DIR, "log/")
 
+DEFAULT_CHARSET='utf-8'
 
 LOGGING = {
     'version': 1,
